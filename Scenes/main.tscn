@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqaa01lvcs0ol"]
+
+[ext_resource type="Script" uid="uid://bntalj4iqrj06" path="res://scripts/main.gd" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://tx1uot60dt37" path="res://Scenes/main_ui.tscn" id="2_bo1nx"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_jjgbg")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = -30
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+z_index = -30
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+color = Color(0.141176, 0.247059, 0.560784, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainUi" parent="CanvasLayer" node_paths=PackedStringArray("main") instance=ExtResource("2_bo1nx")]
+main = NodePath("../..")
