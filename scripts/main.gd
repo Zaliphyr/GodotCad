@@ -11,6 +11,7 @@ var lineCount: int = 0
 @onready var camera: Camera2D = $Camera2D
 
 var items: Array
+var selected: Array
 
 func _ready() -> void:
 	create_point(Vector2.ZERO)
@@ -72,11 +73,17 @@ func _unhandled_input(e: InputEvent) -> void:
 	
 func _handle_mouse_click(pos: Vector2) -> void:
 	if tool == "point":
-		print("mouse global: ", pos)
-		print("main global: ", global_position)
-		print("main scale: ", scale)
-		print("main rotation: ", rotation)
 		create_point(pos)
+	else:
+		for i in items:
+			if i.highlighted:
+				if i not in selected:
+					selected.append(i)
+				else:
+					selected.erase(i)
+		ui.update_selected_list(selected)
+				
+		
 		
 
 func _handle_mouse_long_click(pos: Vector2, msec: int) -> void:

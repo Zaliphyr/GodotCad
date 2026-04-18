@@ -8,6 +8,7 @@ var highlight_from_mouse: bool = false
 var highlight_from_list: bool = false
 var label: String
 var is_initialized: bool = false
+var highlighted: bool = false
 
 func _draw() -> void:
 	draw_circle(Vector2.ZERO, radius, color)
@@ -44,8 +45,10 @@ func _update_highlight() -> void:
 	if should_highlight:
 		color = Color.RED
 		list.set_highlight(true)
+		highlighted = true
 	else:
 		color = Color.WHITE
 		list.set_highlight(false)
+		highlighted = false
 	
 	queue_redraw()
