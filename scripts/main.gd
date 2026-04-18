@@ -8,6 +8,7 @@ var tool: String = ""
 var pointCount: int = 0
 var lineCount: int = 0
 @onready var ui: MainUi = $CanvasLayer/MainUi
+@onready var camera: Camera2D = $Camera2D
 
 var items: Array
 
@@ -58,6 +59,16 @@ func _unhandled_input(e: InputEvent) -> void:
 			#else:
 				#_handle_mouse_down(mouse_down_pos)
 				#_handle_mouse_up(e.position)
+	elif e is InputEventKey:
+		if e.key_label == KEY_LEFT:
+			camera.global_position.x -= 10
+		elif  e.key_label == KEY_RIGHT:
+			camera.global_position.x += 10
+		elif  e.key_label == KEY_UP:
+			camera.global_position.y -= 10
+		elif  e.key_label == KEY_DOWN:
+			camera.global_position.y += 10
+			
 	
 func _handle_mouse_click(pos: Vector2) -> void:
 	if tool == "point":
