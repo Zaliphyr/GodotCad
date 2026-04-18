@@ -31,7 +31,7 @@ func create_point(pos: Vector2) -> void:
 	new_listItem.setup(new_point)
 	self.add_child(new_point)
 	items.append(new_point)
-	ui.list_container.add_child(new_listItem)
+	ui.update_item_list(items)
 
 func create_line(point1: Point, point2: Point) -> void:
 	var new_line: Line = line.instantiate()
@@ -41,7 +41,7 @@ func create_line(point1: Point, point2: Point) -> void:
 	new_listItem.setup(new_line)
 	self.add_child(new_line)
 	items.append(new_line)
-	ui.list_container.add_child(new_listItem)
+	ui.update_item_list(items)
 	
 
 func _unhandled_input(e: InputEvent) -> void:
