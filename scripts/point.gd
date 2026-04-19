@@ -1,14 +1,11 @@
 class_name Point
-extends Node2D
+extends Item
 
 var color: Color = Color.WHITE
 var radius: int = 4
-var list: ListItem
 var highlight_from_mouse: bool = false
 var highlight_from_list: bool = false
-var label: String
 var is_initialized: bool = false
-var highlighted: bool = false
 
 func _draw() -> void:
 	draw_circle(Vector2.ZERO, radius, color)

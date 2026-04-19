@@ -10,14 +10,15 @@ var lineCount: int = 0
 @onready var ui: MainUi = $CanvasLayer/MainUi
 @onready var camera: Camera2D = $Camera2D
 
-var items: Array
-var selected: Array
+var items: Array[Item]
+var selected: Array[Item]
 
 func _ready() -> void:
 	create_point(Vector2.ZERO)
 	create_point(Vector2(-100, -100))
 	create_point(Vector2(100, -100))
 	create_line(items[1], items[2])
+
 
 const CLICK_TIME:  int   = 250 # 1/4 second.
 const CLICK_RANGE: float = 5.0 # pixels
